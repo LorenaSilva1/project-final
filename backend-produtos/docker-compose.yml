@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  produtos:
+    build: ./backend-produtos
+    ports:
+      - "5001:5001"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    command: ["npm", "run", "dev"]
+    depends_on:
+      - produtos

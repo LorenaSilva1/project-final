@@ -1,0 +1,30 @@
+services:
+  produtos:
+    build: ./produtos
+    ports:
+      - "5001:5001"
+
+  clientes:
+    build: ./clientes
+    ports:
+      - "5002:5002"
+
+  vendas:
+    build: ./vendas
+    ports:
+      - "5003:5003"
+
+  chat:
+    build: ./chat
+    ports:
+      - "5004:5004"
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - produtos
+      - clientes
+      - vendas
+      - chat
